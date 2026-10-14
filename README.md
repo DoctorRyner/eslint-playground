@@ -1,56 +1,12 @@
-# sv
+# ESLint test
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+If you have bun installed, you can replace npm with bun.
 
-## Creating a project
+The config in `red/config.toml` sets ESLint as the language server for JavaScript.
 
-If you're seeing this, you've probably already done this step. Congrats!
+1. Run `npm i` to install dependencies
+2. Run `npm run dev` to run the project (you can skip it)
+3. Run `npm i -g vscode-langservers-extracted@4.8.0` to install `vscode-eslint-language-server` language server
+4. Open `src/lib/index.ts` file in Red and you should see `I 'unusedTest' is assigned a value but never used.` if eslint works properly  
 
-```sh
-# create a new project
-npx sv create my-app
-```
-
-To recreate this project with the same configuration:
-
-```sh
-# recreate this project
-bun x sv@1.1.1 create --template minimal --types ts --add prettier eslint --install bun eslint-playground
-```
-
-## Adding features
-
-Add features to your project with `sv add`:
-
-```sh
-npx sv add
-```
-
-For example, to add Tailwind CSS:
-
-```sh
-npx sv add tailwindcss
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```sh
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```sh
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+Now, what is the problem? People writing frontend pretty much nearly always need both tsserver and eslint language servers at the same time. Right now red allows only a sigle LSP to run at the same time
