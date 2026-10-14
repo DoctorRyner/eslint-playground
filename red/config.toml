@@ -1,0 +1,63 @@
+theme = "red.json"
+
+# Formatter
+
+[languages.javascript.formatter]
+name = "Prettier"
+command = "prettier"
+args = ["--stdin-filepath", "{file}"]
+root_markers = [".prettierrc", "package.json", ".git"]
+
+[languages.jsx.formatter]
+name = "Prettier"
+command = "prettier"
+args = ["--stdin-filepath", "{file}"]
+root_markers = [".prettierrc", "package.json", ".git"]
+
+[languages.typescript.formatter]
+name = "Prettier"
+command = "prettier"
+args = ["--stdin-filepath", "{file}"]
+root_markers = [".prettierrc", "package.json", ".git"]
+
+[languages.tsx.formatter]
+name = "Prettier"
+command = "prettier"
+args = ["--stdin-filepath", "{file}"]
+root_markers = [".prettierrc", "package.json", ".git"]
+
+[languages.svelte.formatter]
+name = "Prettier"
+command = "prettier"
+args = ["--stdin-filepath", "{file}"]
+root_markers = [".prettierrc", "package.json", ".git"]
+
+# ESLint
+
+[lsp.servers.eslint]
+command = "vscode-eslint-language-server"
+args = ["--stdio"]
+documents = [{ language_id = "typescriptreact", file_extensions = ["js", "jsx", "ts", "tsx", "svelte"] }]
+root_markers = ["eslint.config.ts", "eslint.config.js", "eslint.config.mjs", ".eslintrc.json", ".eslintrc.js", "package.json", ".git"]
+
+env = { NODE_OPTIONS = "--max-old-space-size=8192" }
+
+[lsp.servers.eslint.settings.""]
+validate = "on"
+run = "onType"
+packageManager = "npm"
+nodePath = ""
+useESLintClass = false
+quiet = false
+format = false
+onIgnoredFiles = "off"
+rulesCustomizations = []
+options = {}
+experimental = {}
+workingDirectory = { mode = "auto" }
+codeActionOnSave = { mode = "all" }
+problems = { shortenToSingleLine = false }
+
+[lsp.servers.eslint.settings."".codeAction]
+disableRuleComment = { enable = true, location = "separateLine", commentStyle = "line" }
+showDocumentation = { enable = true }
